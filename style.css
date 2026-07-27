@@ -1,3 +1,7 @@
+/* * {
+    outline: 1px solid red;
+} */
+
 body {
     font-family: 'Work Sans', sans-serif;
     margin: 0;
@@ -50,6 +54,50 @@ a {
     color: inherit;
 }
 
+.hamburger{
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    position: relative;
+
+    transform: translateX(55px);
+}
+
+.hamburger span{
+    display: block;
+
+    width: 26px;
+    height: 3px;
+
+    background: #111827;
+
+    border-radius: 999px;
+
+    margin: 5px auto;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 .contact-btn{
     padding: 0.75rem 1.2rem;
     background: #8B5CF6;
@@ -94,7 +142,8 @@ a {
 }
 
 #img-cont img{
-    width: 580px;
+    width: 100%;
+    max-width: 580px;
     height: auto;
 }
 
@@ -119,3 +168,73 @@ a {
     color: #6B7280;
 }
 
+@media (max-width: 768px) {
+    .hamburger{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .nav-links.active{
+        display:flex;
+        flex-direction:column;
+
+        position:absolute;
+
+        top:calc(100% - 16px);
+        left:0;
+
+        width:100%;
+
+        background:rgb(219, 219, 219);
+
+        padding:2rem 0;
+
+        gap:1.5rem;
+
+        text-align:center;
+    }
+
+    .logo{
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        transform: translateX(-55px);
+
+        font-weight: 600;
+        font-size: 1.35rem;
+    }
+
+    #home {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        gap: 1rem; 
+        padding: 1rem;
+    }
+
+    #img-cont img{
+        width: 250px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .img-chibi{
+        transform: None;
+    }
+
+    #hello-txt{
+        transform: translateY(-135px);
+        font-size: 1.5rem;
+        color: #111827;
+    }
+    
+    .description-txt{
+        transform: translateY(-135px);
+        font-size: 0.9rem;
+        color: #374151;
+    }
+}
